@@ -1,8 +1,5 @@
 A set of programs for keeping track of pomodoros.
 Current status: 
 caprese.py prints a .CSV and adds a new pomodoro to the .CSV.
-pomodoro.py defines the Pomodoro class
-	date
-	time
-	tags
+pomodoro.py defines the Pomodoro class, which includes:date, time, tags
 	
