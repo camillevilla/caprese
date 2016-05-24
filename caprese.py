@@ -30,7 +30,7 @@ def add_pomodoro():
 	pomWriter = csv.writer(outputFile, lineterminator='\n')
 	print('YAY! a new tomato!')
 	x = Pomodoro()
-	pomWriter.writerow([x.date,time_convert(x.time),x.tags])
+	pomWriter.writerow([x.date,time_convert(x.time),x.tags,x.notes])
 	outputFile.close()
 
 view_log()
