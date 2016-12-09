@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom')
-const PomodoroButton = require('./components/PomodoroButton')
+const Timer = require('./components/Timer')
 
 class HelloWorld extends React.Component{
   render() {
@@ -10,4 +10,4 @@ class HelloWorld extends React.Component{
   }
 }
 
-ReactDOM.render(<PomodoroButton />, document.getElementById('app'))
+ReactDOM.render(<Timer />, document.getElementById('app'))
