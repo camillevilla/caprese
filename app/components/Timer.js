@@ -1,5 +1,6 @@
 var React = require('react');
 
+
 var Timer = React.createClass({
   getInitialState: function() {
     return {
@@ -50,7 +51,7 @@ var Timer = React.createClass({
   render: function() {
     var seconds = Math.floor(this.state.timeRemaining / 1000);
     return (
-      <div className="stopwatch">
+      <div className="timer container">
         <h2>Caprese</h2>
         <div className="stopwatch-time">{seconds}</div>
         { this.state.running ?
