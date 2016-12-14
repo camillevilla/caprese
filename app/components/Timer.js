@@ -17,7 +17,21 @@ var Timer = React.createClass({
   componentWillUnmount: function() {
     clearInterval(this.interval);
   },
-
+  onFifteen: function() {
+    this.setState({
+      timeRemaining: 900000
+    })
+  },
+  onTen: function() {
+    this.setState({
+      timeRemaining: 600000
+    })
+  },
+  onFive: function() {
+    this.setState({
+      timeRemaining: 300000
+    })
+  },
   onTick: function() {
     if (this.state.running && this.state.timeRemaining > 500) {
       const now = Date.now();
@@ -66,11 +80,15 @@ var Timer = React.createClass({
           <div onClick={this.onStart} className="timer timer-stopped">
             <div className="stopwatch-time"><h1 className="minutes">{minutes}</h1>M</div>
             <br></br>
-            <div className="stopwatch-time"><h1 className="seconds">{seconds}</h1>S</div>
+            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1>S</div>
 
           </div>
         }
         <button onClick={this.onReset}>Reset</button>
+        <button onClick={this.onFifteen}>15</button>
+        <button onClick={this.onTen}>10</button>
+        <button onClick={this.onFive}>5</button>
+
       </div>
     );
   }
