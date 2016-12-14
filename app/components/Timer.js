@@ -5,7 +5,7 @@ var Timer = React.createClass({
   getInitialState: function() {
     return {
       running: false,
-      timeRemaining: 250000000,
+      timeRemaining: 1500000,
       previousTime: 0,
     }
   },
@@ -20,7 +20,7 @@ var Timer = React.createClass({
 
   onTick: function() {
     if (this.state.running && this.state.timeRemaining > 500) {
-      var now = Date.now();
+      const now = Date.now();
       this.setState({
         previousTime: now,
         timeRemaining: this.state.timeRemaining - (now - this.state.previousTime),
@@ -43,23 +43,31 @@ var Timer = React.createClass({
   onReset: function() {
     this.setState({
       running: false,
-      timeRemaining: 5000,
+      timeRemaining: this.state.timeRemaining,
       previousTime: Date.now()
     });
   },
 
   render: function() {
-    var seconds = Math.floor(this.state.timeRemaining / 1000);
+    const seconds = Math.floor(this.state.timeRemaining / 1000);
+    const actualSeconds = seconds % 60
+    const minutes = Math.floor(seconds / 60)
+
     return (
       <div>
         <h2>Caprese</h2>
         { this.state.running ?
           <div onClick={this.onStop} className="timer timer-running">
-            <div className="stopwatch-time"><h1 className="seconds">{seconds}</h1></div>
+            <div className="stopwatch-time"><h1 className="seconds">{minutes}</h1>minutes</div>
+            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1>seconds</div>
+
           </div>
           :
           <div onClick={this.onStart} className="timer timer-stopped">
-            <div className="stopwatch-time"><h1 className="seconds">{seconds}</h1></div>
+            <div className="stopwatch-time"><h1 className="minutes">{minutes}</h1>M</div>
+            <br></br>
+            <div className="stopwatch-time"><h1 className="seconds">{seconds}</h1>S</div>
+
           </div>
         }
         <button onClick={this.onReset}>Reset</button>
